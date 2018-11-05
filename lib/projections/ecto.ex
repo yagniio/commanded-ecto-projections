@@ -62,7 +62,7 @@ defmodule Commanded.Projections.Ecto do
                 nil ->
                   @repo.insert!(%ProjectionVersion{
                     projection_name: @projection_name,
-                    last_seen_event_number: 0
+                    last_seen_event_number: -1
                   })
 
                 version ->
