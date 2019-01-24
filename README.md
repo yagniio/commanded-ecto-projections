@@ -8,7 +8,7 @@ Read model projections for [Commanded](https://github.com/commanded/commanded) C
 
 MIT License
 
-[![Build Status](https://travis-ci.org/commanded/commanded-ecto-projections.svg?branch=master)](https://travis-ci.org/commanded/commanded-ecto-projections)
+[![Build Status](https://travis-ci.com/commanded/commanded-ecto-projections.svg?branch=master)](https://travis-ci.com/commanded/commanded-ecto-projections)
 
 ---
 
@@ -33,7 +33,7 @@ You should already have [Ecto](https://github.com/elixir-ecto/ecto) installed an
     ```elixir
     def deps do
       [
-        {:commanded_ecto_projections, "~> 0.7"},
+        {:commanded_ecto_projections, "~> 0.8"},
       ]
     end
     ```
@@ -91,14 +91,14 @@ You should already have [Ecto](https://github.com/elixir-ecto/ecto) installed an
 When using a prefix for your schemas you might also want to change the prefix
 for the `ProjectionVersion` schema. There are two options to do this:
 
-1. provide a global prefix via the config
+1. Provide a global prefix via the config
 
 ```elixir
 config :commanded_ecto_projections,
   schema_prefix: "example_schema_prefix"
 ```
 
-2. provide the prefix on a projection by projection basis
+2. Provide the prefix on a projection by projection basis
 
 ```elixir
 defmodule MyApp.ExampleProjector do
@@ -282,6 +282,7 @@ mix test
 
 - [Andrey Akulov](https://github.com/astery)
 - [Ben Smith](https://github.com/slashdotdash)
+- [CptBreeza](https://github.com/CptBreeza)
 - [Florian Ebeling](https://github.com/febeling)
 - [Sascha Wolf](https://github.com/Zeeker)
 - [Tobiasz Małecki](https://github.com/amatalai)

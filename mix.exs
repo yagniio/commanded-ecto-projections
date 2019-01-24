@@ -1,7 +1,7 @@
 defmodule Commanded.Projections.Ecto.Mixfile do
   use Mix.Project
 
-  @version "0.7.1"
+  @version "0.8.0"
 
   def project do
     [
@@ -20,23 +20,17 @@ defmodule Commanded.Projections.Ecto.Mixfile do
 
   def application do
     [
-      extra_applications: extra_applications(Mix.env()) ++ [:ecto_sql]
+      extra_applications: extra_applications(Mix.env())
     ]
   end
 
-  # include ecto and postgrex apps in `test` environment only
+  # Include ecto and postgrex apps in `test` environment only
   defp extra_applications(:test) do
-    [
-      :logger,
-      :ecto,
-      :postgrex
-    ]
+    [:logger, :ecto, :ecto_sql, :postgrex]
   end
 
-  defp extra_applications(_) do
-    [
-      :logger
-    ]
+  defp extra_applications(_env) do
+    [:logger]
   end
 
   defp elixirc_paths(:test), do: ["lib", "test/support"]
@@ -44,11 +38,16 @@ defmodule Commanded.Projections.Ecto.Mixfile do
 
   defp deps do
     [
-      {:commanded, ">= 0.12.0", runtime: false},
+      {:commanded, ">= 0.18.0", runtime: false},
       {:ecto, "~> 3.0", runtime: false},
       {:ecto_sql, "~> 3.0", runtime: false},
-      {:ex_doc, ">= 0.0.0", only: :dev},
       {:postgrex, "~> 0.14", only: :test},
+
+      # Optional dependencies
+      {:jason, "~> 1.1", optional: true},
+
+      # Test & build tooling
+      {:ex_doc, ">= 0.0.0", only: :dev},
       {:mix_test_watch, "~> 0.9", only: :dev, runtime: false}
     ]
   end
